@@ -1,0 +1,22 @@
+<% breadcrumb :new_statement %>
+<div class="row">
+  <div class="col-sm-8">
+    <%= render 'shared/breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-md-offset-1 col-md-10">
+		<dl class="dl-horizontal">
+		  <dt>Sample</dt>
+		  <dd>select * from TweetXsd where message like '%happy%'</dd>
+		  <dd>select avg(open) from StockXsd output last every 5 second</dd>
+		</dl>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-offset-1 col-md-9">
+		<%= render 'form' %>
+	</div>
+</div>

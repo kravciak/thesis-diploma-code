@@ -1,0 +1,18 @@
+<% if @statement.state != 'STARTED' %>
+	<%= link_to control_statement_path(@statement, cmd:'start'), class: "btn btn-danger btn-sm", title: 'Start' do %>
+		<span class="glyphicon glyphicon-play"></span>
+	<% end %>
+<% else %>	
+	<%= link_to control_statement_path(@statement, cmd:'stop'), class: "btn btn-default btn-sm", title: 'Stop' do %>
+		<span class="glyphicon glyphicon-stop"></span>
+	<% end %>
+<% end %>
+&nbsp;
+
+<%#= link_to edit_statement_path(@statement), class: "btn btn-default btn-sm", title: 'Edit' do %>
+	<!-- <span class="glyphicon glyphicon-edit"></span> -->
+<%# end %>
+
+<%= link_to @statement, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm", title: 'Delete' do %>
+	<span class="glyphicon glyphicon-remove"></span>
+<% end %>

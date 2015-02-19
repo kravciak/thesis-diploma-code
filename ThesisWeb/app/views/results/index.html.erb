@@ -1,0 +1,61 @@
+<% breadcrumb :results, @statement %>
+<div class="row">
+  <div class="col-md-8">
+    <%= render 'shared/breadcrumbs' %>
+  </div>
+  <div class="col-md-4 text-right">
+    <p><%= render 'controls_index' %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <dl class="dl-horizontal">
+        <dt>Results for</dt>
+        <dd><%= link_to @statement.name, @statement %></dd>
+    </dl>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <% if @results.empty? %>
+
+      <div class="row">
+        <div class="col-md-offset-2 col-md-6">
+          <div class="panel panel-warning">
+            <div class="panel-heading">No results found yet.</div>
+            <div class="panel-body">
+              Try <%= link_to "to send", stream_index_path %> some events.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% else %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>received</th>
+            <% @statement.metadata[:description].each do |prop, type| %>
+              <th><%= prop %></th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @results.each do |result| %>
+          <tr>
+            <td><%= link_to uuid_to_str(result.time_id), statement_result_path(@statement, result) %></td>
+            <% @statement.metadata[:description].each_key do |prop| %>
+              <td>
+                <%= truncate(result.event[prop].to_s, length: 30) %>
+              </td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= render 'cassandra_pagination' %>
+    <% end %>
+  </div>
+</div>

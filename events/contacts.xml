@@ -1,0 +1,26 @@
+<events>
+<Contact>
+    <name>Martin</name>
+    <age>16</age>
+    <phone>0948701744</phone>
+    <email>krsdi@gmail.com</email>
+</Contact>
+<Contact>
+    <name>Tomas</name>
+    <age>18</age>
+    <phone>0948111744</phone>
+    <email>krsdi@email.com</email>
+</Contact>
+<Contact>
+    <name>Nadia</name>
+    <age>20</age>
+    <phone>0948111744</phone>
+    <email>krsdi@zoznam.com</email>
+</Contact>
+<Contact>
+    <name>Sona</name>
+    <age>60</age>
+    <phone>0948701744</phone>
+    <email>krsdi@gmail.com</email>
+</Contact>
+</events>

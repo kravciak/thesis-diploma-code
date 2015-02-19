@@ -1,0 +1,7 @@
+<%= link_to export_statement_result_path(@statement, @result), class: "btn btn-default btn-sm", title: 'Export', data:{no_turbolink: true} do %>
+	<span class="glyphicon glyphicon-download"></span>
+<% end %>
+
+<%= link_to statement_result_path(@statement, @result), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm", title: 'Delete' do %>
+	<span class="glyphicon glyphicon-remove"></span>
+<% end %>

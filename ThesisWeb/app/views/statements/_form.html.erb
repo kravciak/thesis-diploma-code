@@ -1,0 +1,36 @@
+<%= form_for(@statement, html: {class:'form-horizontal'}) do |f| %>
+  <% if @statement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statement.errors.count, "error") %> prohibited this statement from being saved:</h2>
+
+      <ul>
+      <% @statement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Name", class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+      <%= f.number_field :ttl, class: 'form-control', placeholder: 'TTL (s)' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :epl, "Statement", class: 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_area :epl, rows: 7, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class:'btn btn-default btn-block' %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,50 @@
+pre {
+	background-color: transparent;
+}
+.navbar-brand {
+	padding:3px 7px;
+}
+
+#progress {
+    text-align: center;
+
+}
+#progress a {
+    display: block;
+    color: #333333;
+    margin-bottom: 0px;
+    padding-bottom: 7px;
+}
+#progress p {
+}
+
+#progress .col-md-2 {
+    padding:0px;
+    background-color: #fff;
+    border: 1px solid #C0C0C0;
+    border-right: none;
+}
+
+#progress .col-md-2:last-child {
+    border: 1px solid #C0C0C0;
+    border-radius: 0 5px 5px 0;
+}
+
+#progress .col-md-2:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+#progress .col-md-2 a:hover {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+#progress .current a, #progress .current a:hover{
+    background-color: #337ab7;
+    color: white;
+}
+
+#progress .fa {
+    padding-top: 10px;
+    font-size: 25px;
+}

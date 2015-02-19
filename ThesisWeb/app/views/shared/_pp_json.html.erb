@@ -1,0 +1,11 @@
+<span class="pp_json"><%= raw ap pp_json %></span>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+        var node = new PrettyJSON.view.Node({ 
+            el:$('.pp_json'),
+            data:<%= raw pp_json.to_json %>
+        });
+        node.expandAll();
+    });
+</script>

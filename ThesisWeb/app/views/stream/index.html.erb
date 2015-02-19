@@ -1,0 +1,43 @@
+<% breadcrumb :stream %>
+
+<div class="row">
+  <div class="col-sm-8">
+    <%= render 'shared/breadcrumbs' %>
+  </div>
+</div>
+
+<div class="row">
+	<div class="col-md-offset-2 col-md-10">
+		<p>
+  			<strong>Receiving XML events at:</strong>
+  		  	<%= link_to stream_uri, stream_uri, target: '_blank' %>
+		</p>
+	</div>
+</div>
+
+<%= form_tag(stream_upload_path, {multipart: true, class:'form-horizontal'}) do %>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<%= text_area_tag :input_xml, nil, rows: 10, class:'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<%= file_field_tag :file_xml, class:'filestyle' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-8">
+			<div class="btn-group btn-group-justified" role="group">
+				<div class="btn-group" role="group">
+	  				  <%= submit_tag 'Send', class:'btn btn-default' %>
+	  			</div>
+				<div class="btn-group" role="group">
+					<%= link_to stream_sample_path, class: "btn btn-default", title: 'Sample' do %>
+						<span class="glyphicon glyphicon-send" ></span>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>

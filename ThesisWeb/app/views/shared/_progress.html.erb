@@ -1,0 +1,26 @@
+<div id="progress" class="row" style="margin-bottom: 20px;">
+    <div class="col-md-offset-2 col-md-2 <%= 'current' if controller.controller_name == 'schemas' %>">
+        <%= link_to schemas_path do %>
+            <span class="fa fa-cloud-download"></span>
+            <p>Event Types</p>
+        <% end %>
+    </div>
+    <div class="col-md-2 <%= 'current' if controller.controller_name == 'statements' %>">
+        <%= link_to statements_path do %>
+            <span class="fa fa-pencil"></span>
+            <p>Statements</p>
+        <% end %>
+    </div>
+    <div class="col-md-2 <%= 'current' if controller.controller_name == 'stream' %>">
+        <%= link_to stream_index_path do %>
+            <span class="fa fa-cloud-upload"></span>
+            <p>Streamer</p>
+        <% end %>
+    </div>
+    <div class="col-md-2 <%= 'current' if controller.controller_name == 'results' %>">
+        <%= link_to statement_results_path(@statement || 'nil') do %>
+            <span class="fa fa-cloud-upload"></span>
+            <p>Results</p>
+        <% end %>
+    </div>
+</div>

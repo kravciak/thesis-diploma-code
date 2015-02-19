@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="StockEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="time" type="xs:string"></xs:element>
+        <xs:element name="open" type="xs:float"></xs:element>
+        <xs:element name="high" type="xs:float"></xs:element>
+        <xs:element name="low" type="xs:float"></xs:element>
+        <xs:element name="close" type="xs:float"></xs:element>
+        <xs:element name="volume" type="xs:float"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

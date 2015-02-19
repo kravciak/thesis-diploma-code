@@ -1,0 +1,55 @@
+<% breadcrumb @statement %>
+<div class="row">
+	<div class="col-md-8">
+		<%= render 'shared/breadcrumbs' %>
+		<p>
+			<strong><%= @statement.name %></strong>
+			<span class="badge"><%= @esper.metadata[:count] %></span>
+		</p>
+	</div>
+	<div class="col-md-4 text-right">
+		<p><%= render 'controls' %></p>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<%= @statement.statement %>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>received</th>
+				<% @esper.metadata[:description].each do |desc| %>
+					<th><%= desc[:prop] %> (<%= desc[:type] %>)</th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @esper.hits.each do |data| %>
+			<tr>
+				<td><%= Time.at(data[:timestamp]).strftime('%F %T') %></td>
+				<% @esper.metadata[:description].each do |desc| %>
+					<td>
+						<%= truncate(data[desc[:prop]].to_s, length: 100) %>
+					</td>
+				<% end %>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<%= render 'cassandra_pagination' %>
+
+<!-- Check Gon Gem -->
+<script type="text/javascript">
+  $(document).ready(function() {
+        var node = new PrettyJSON.view.Node({ 
+            el:$('#result'),
+            data:<%= raw @esper.hits[0].to_json %>
+        });
+    });
+</script>
+<div class="col-sm-12">
+  <span id="result">result</span>
+</div>

@@ -1,0 +1,30 @@
+<% pager=@results.metadata[:pagination] %>
+<ul class="pager">
+	<% if pager[:offset_previous] %>
+		<li class="previous">
+			<%= link_to "&lArr;".html_safe, statement_results_path(@statement) %>
+		</li>
+		<li class="previous">
+			<%= link_to "&larr; Newer".html_safe, statement_results_path(@statement, offset: pager[:offset_previous], reverse:true) %>
+		</li>
+	<% else %>
+		<li class="previous disabled">
+			<li class="previous disabled"><a href="">&lArr;</a></li>
+		</li>
+		<li class="previous disabled"><a href="">&larr; Newer</a></li>
+	<% end  %>
+
+    <li><%= link_to @statement.metadata[:result_count] %></li>
+
+	<% if pager[:offset_next] %>
+		<li class="next">
+			<%= link_to "&rArr;".html_safe, statement_results_path(@statement, offset: 'last') %>
+		</li>
+		<li class="next">
+			<%= link_to "Older &rarr;".html_safe, statement_results_path(@statement, offset: pager[:offset_next]) %>
+		</li>
+	<% else %>
+		<li class="next disabled"><a href="">&rArr;</a></li>
+		<li class="next disabled"><a href="">Older &rarr;</a></li>
+	<% end  %>
+</ul>

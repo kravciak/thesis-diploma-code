@@ -1,0 +1,35 @@
+<div id="homepage" class="row">
+	<div class="col-sm-4">
+		<div class="thumbnail">
+			<%= link_to image_tag('blueprint.png', class:'img-circle', style:'background:black'), schemas_path %>
+			<div class="caption">
+				<h3 class="text-center">Define Event Type</h3>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+				<p><%= link_to "Open", schemas_path, class:'btn btn-default btn-block' %></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="thumbnail">
+			<%= link_to image_tag('xsd.png', class:'img-circle', style:'background:black'), statements_path %>
+			<div class="caption">
+				<h3 class="text-center">Create Statement</h3>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+				<p><%= link_to "Open", statements_path, class:'btn btn-default btn-block' %></p>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-sm-4">
+		<div class="thumbnail">
+			<%= link_to image_tag('upload.png', class:'img-circle'), stream_index_path %>
+			<div class="caption">
+				<h3 class="text-center">Upload Events</h3>
+				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+				<p><%= link_to "Open", stream_index_path, class:'btn btn-default btn-block' %></p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- blueprint, schema, plan, upload,send, search -->

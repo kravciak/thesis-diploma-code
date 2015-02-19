@@ -1,0 +1,41 @@
+<% breadcrumb :schemas %>
+<div class="row">
+  <div class="col-sm-8">
+    <%= render 'shared/breadcrumbs' %>
+  </div>
+
+    <div class="col-md-3">
+        <%= form_tag(schemas_path, {method: :get, class:'form-inline'}) do %>
+            <div class="input-group">
+                <%= text_field_tag :filter, params[:filter], class:'form-control', placeholder:'Filter', autocomplete:'off' %>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                </span>
+            </div>
+        <% end %>
+    </div>
+    <div class="col-md-1 text-right">
+        <%= link_to new_schema_path, class: "btn btn-default btn-sm", title: 'New' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+        <% end %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="list-group">
+          <% @schemas.each do |schema| %>
+            <%= link_to schema, class:"list-group-item #{'active' if current_page?(schema)}" do %>
+                <% if schema.metadata[:usage_count] > 0 %>
+                    <span class="badge"><%= schema.metadata[:usage_count] %></span>
+                <% end %>
+                <%= truncate(schema.name, length:30) %>
+            <% end %>
+          <% end %>
+        </div>
+    </div>
+</div>
+
+<%= will_paginate @pagination %>

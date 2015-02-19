@@ -1,0 +1,51 @@
+<% breadcrumb @statement %>
+<div class="row">
+	<div class="col-md-8">
+		<%= render 'shared/breadcrumbs' %>
+	</div>
+	<div class="col-md-4 text-right">
+		<p><%= render 'controls' %></p>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+		<dl class="dl-horizontal">
+  		  <dt></dt>
+  		  <dd><%= @statement.name %></dd>
+
+  		  <dt>State</dt>
+  		  <dd><%= @statement.state.capitalize %></dd>
+
+		  <dt>TTL</dt>
+		  <dd><%= sec_to_str @statement.ttl %></dd>
+
+  		  <dt>Epl</dt>
+  		  <dd><%= @statement.epl %></dd>
+
+  		  <dt>Access URL</dt>
+  		  <dd><%= link_to 'url', statement_uri(@statement), target: '_blank' %></dd>
+
+  		  <dt>Results</dt>
+  		  <dd><%= link_to @statement.metadata[:result_count].to_s, statement_results_path(@statement.id) %></dd>
+		</dl>
+	</div>
+
+	<div class="col-md-4">
+		<div class="panel panel-default col-sm-12">
+		  <div class="panel-body" style="padding-bottom:3px">
+	   		<%= render 'form_replay' %>
+		</div></div>
+		<div class="panel panel-default col-sm-12">
+		  <div class="panel-body" style="padding-bottom:3px">
+			<dl>
+	  		  <dt></dt>
+	  		  <dd>&nbsp;</dd>
+
+	  		  <dt>Schema</dt>
+	  		  <dd><%= render partial: "shared/pp_json", object: @statement.metadata[:description] %></dd>
+			</dl>
+		</div></div>
+	</div>
+
+</div>

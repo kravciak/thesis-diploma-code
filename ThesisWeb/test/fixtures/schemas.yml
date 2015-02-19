@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  root: MyString
+  xsd: MyString
+
+two:
+  root: MyString
+  xsd: MyString

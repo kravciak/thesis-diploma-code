@@ -1,0 +1,17 @@
+<%= link_to export_schema_path(@schema, format:'xml'), class: "btn btn-default btn-sm", title: 'Export' do %>
+	<span class="glyphicon glyphicon-download"></span>
+<% end %>
+
+<%#= link_to edit_schema_path(@schema), class: "btn btn-default btn-sm", title: 'Edit' do %>
+	<!-- <span class="glyphicon glyphicon-edit"></span> -->
+<%# end %>
+
+<% if @schema.metadata[:statements].empty? %>
+	<%= link_to @schema, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-sm", title: 'Delete' do %>
+		<span class="glyphicon glyphicon-remove"></span>
+	<% end  %>
+<% else %>
+	<button class="btn btn-default btn-sm disabled">
+		<span class="glyphicon glyphicon-remove"></span>
+	</button>
+<% end %>
