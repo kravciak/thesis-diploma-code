@@ -18,7 +18,7 @@
         <% end %>
     </div>
     <div class="col-md-2 <%= 'current' if controller.controller_name == 'results' %>">
-        <%= link_to statement_results_path(@statement || 'nil') do %>
+        <%= link_to statement_results_path((@statement && !@statement.id.nil?) ? @statement : 'nil') do %>
             <span class="fa fa-cloud-upload"></span>
             <p>Results</p>
         <% end %>

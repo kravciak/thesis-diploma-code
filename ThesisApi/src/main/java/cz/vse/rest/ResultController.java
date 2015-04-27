@@ -196,7 +196,7 @@ public class ResultController {
     // TODO: async - do not wait till end
     @RequestMapping(value = "replay")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void replay(@PathVariable("statement_id") int statementID,
+    public void replayAll(@PathVariable("statement_id") int statementID,
                        @RequestParam("as") String as,
                        @RequestParam("start") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date start,
                        @RequestParam("stop") @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") Date stop) throws IOException, SAXException, ParserConfigurationException {
@@ -212,7 +212,7 @@ public class ResultController {
 
     @RequestMapping(value = "{uuid}/replay")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void replay(@PathVariable("statement_id") int statementID,
+    public void replayOne(@PathVariable("statement_id") int statementID,
                        @PathVariable("uuid") UUID uuid,
                        @RequestParam("as") String as) throws IOException, SAXException, ParserConfigurationException {
         if (as == null || as.isEmpty()) throw new BadRequestException("You have to specify Root Element");

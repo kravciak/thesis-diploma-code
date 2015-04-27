@@ -2,7 +2,6 @@ class ResultsController < ApplicationController
 
 	def index
 		if !params[:statement_id].eql?('nil')
-			logger.info params[:statement_id]
 			@statement = Statement.find(params[:statement_id])
 			@results = @statement.results.all(
 		      	offset: params[:offset] || 'first',

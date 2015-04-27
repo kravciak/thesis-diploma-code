@@ -29,7 +29,7 @@
           <% @schemas.each do |schema| %>
             <%= link_to schema, class:"list-group-item #{'active' if current_page?(schema)}" do %>
                 <% if schema.metadata[:usage_count] > 0 %>
-                    <span class="badge"><%= schema.metadata[:usage_count] %></span>
+                    <span title="<%= schema.metadata[:usage_count] %> dependent statements" class="badge"><%= schema.metadata[:usage_count] %></span>
                 <% end %>
                 <%= truncate(schema.name, length:30) %>
             <% end %>

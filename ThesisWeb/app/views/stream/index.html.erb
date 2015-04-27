@@ -1,9 +1,12 @@
 <% breadcrumb :stream %>
 
 <div class="row">
-  <div class="col-sm-8">
-    <%= render 'shared/breadcrumbs' %>
-  </div>
+	<div class="col-sm-8">
+		<%= render 'shared/breadcrumbs' %>
+	</div>
+	<div class="col-md-4 text-right">
+		<p><%= render 'controls' %></p>
+	</div>
 </div>
 
 <div class="row">
@@ -28,16 +31,7 @@
 	</div>
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-8">
-			<div class="btn-group btn-group-justified" role="group">
-				<div class="btn-group" role="group">
-	  				  <%= submit_tag 'Send', class:'btn btn-default' %>
-	  			</div>
-				<div class="btn-group" role="group">
-					<%= link_to stream_sample_path, class: "btn btn-default", title: 'Sample' do %>
-						<span class="glyphicon glyphicon-send" ></span>
-					<% end %>
-				</div>
-			</div>
+			  <%= submit_tag 'Send', class:'btn btn-default btn-block' %>
 		</div>
 	</div>
 <% end %>

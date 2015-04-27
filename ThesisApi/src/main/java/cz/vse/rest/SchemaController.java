@@ -90,27 +90,9 @@ public class SchemaController {
         return sb;
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
-    public void update(@PathVariable("id") int id,
-                       @RequestParam("name") String name,
-                       @RequestParam("root") String root,
-                       @RequestParam("xsd") String xsd) {
-        throw new NotImplementedException();
-//      Check HttpPutFormContentFilter (put not working, post ok)
-/*
-        SchemaBean sb = dao.getById(id);
-        if (esper.deleteSchema(sb)) {
-            sb.setRoot(root);
-            sb.setXsd(xsd);
-            esper.addSchema(sb);
-            dao.save(sb);
-        }
-*/
-    }
-
     @Transactional
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
-    public void destroy(@PathVariable("id") int id) {
+    public void delete(@PathVariable("id") int id) {
         SchemaBean sb = dao.getById(id);
         try {
             esper.deleteSchema(sb);

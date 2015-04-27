@@ -19,7 +19,7 @@
 
 			<dt>Statements</dt>
 			<% if @schema.metadata[:statements].empty? %>
-				<dd>none</dd>
+				<dd>-</dd>
 			<% else %>
 				<% @schema.metadata[:statements].each do |statement| %>
 					<dd>&rarr; <%= link_to truncate(statement[:name], length: 25), statement_path(statement[:id])  %></dd>

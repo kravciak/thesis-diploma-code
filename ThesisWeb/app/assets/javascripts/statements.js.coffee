@@ -6,6 +6,7 @@ jQuery ->
 	# DatePicker initialize
 	$('.dtpicker').datetimepicker
 		format:'YYYY-MM-DD HH:mm:ss'
+		showTodayButton:true
 		sideBySide:true
 
 	# Replay count
